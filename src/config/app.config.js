@@ -51,7 +51,7 @@ export const VIDEO = {
   // YouTube:  https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1
   // Vimeo:    https://player.vimeo.com/video/VIDEO_ID
   // Panda:    https://player-vz-XXXX.tv.pandavideo.com.br/embed/?v=VIDEO_ID
-  embedUrl: 'https://customer-9oh3tset0qkwn7ag.cloudflarestream.com/94e495b5a1bdf0396f651fbfc06df17b/iframe',
+  embedUrl: 'https://customer-9oh3tset0qkwn7ag.cloudflarestream.com/e3a3df54b553e562e1209af0651e29d4/iframe',
 
   // --- modo mp4 ---
   mp4Url: '',
@@ -61,7 +61,14 @@ export const VIDEO = {
   containerId: 'vsl-player',
 
   /** Imagem de capa. Vazio = capa gerada com o próprio design. */
-  posterUrl: 'https://customer-9oh3tset0qkwn7ag.cloudflarestream.com/94e495b5a1bdf0396f651fbfc06df17b/thumbnails/thumbnail.jpg?height=600',
+  posterUrl: 'https://customer-9oh3tset0qkwn7ag.cloudflarestream.com/e3a3df54b553e562e1209af0651e29d4/thumbnails/thumbnail.jpg?height=600',
+
+  /**
+   * Esconde a barra de controles (padrão VSL).
+   * A pessoa não consegue pular para o fim nem ver a duração.
+   * Deixe false se quiser que ela possa pausar e voltar.
+   */
+  hideControls: true,
 
   /** Duração real, em segundos. Usada para os eventos de progresso. */
   durationSeconds: 180,
@@ -74,10 +81,10 @@ export const VIDEO = {
    *   '1 / 1'   → quadrado
    * Errar isso gera tarja preta nas laterais e derruba a retenção no mobile.
    */
-  aspectRatio: '9 / 16',
+  aspectRatio: '16 / 9',
 
-  headline: 'Antes de continuar, assista a este vídeo',
-  sublead: 'Explico em 3 minutos como a jornada de 21 dias organiza exatamente as prioridades que apareceram na sua análise.',
+  headline: 'Assista antes de continuar',
+  sublead: 'Em 3 minutos eu mostro como a jornada de 21 dias trata exatamente as prioridades que apareceram na sua análise.',
 
   /**
    * Trava da oferta.
@@ -87,6 +94,53 @@ export const VIDEO = {
    */
   revealOfferAfterSeconds: 0,
 }
+
+/**
+ * ============================================================
+ *  GARANTIA
+ * ============================================================
+ * O Código de Defesa do Consumidor já dá 7 dias de arrependimento
+ * em compra online no Brasil (art. 49). Ou seja: os 7 dias você é
+ * obrigado a honrar de qualquer forma. Anunciar isso não custa nada
+ * e reduz atrito. Estender para 14 ou 30 é decisão sua.
+ */
+export const GUARANTEE = {
+  enabled: true,
+  days: 7,
+  title: 'Garantia de {days} dias',
+  text: 'Se você entrar, seguir o plano e sentir que não é para você, devolvemos o valor integral. Sem formulário e sem justificativa.',
+}
+
+/**
+ * ============================================================
+ *  PERGUNTAS FREQUENTES
+ * ============================================================
+ * Cada item aqui é uma objeção que impede a compra. Escreva
+ * respostas curtas e honestas — resposta evasiva aumenta a
+ * desconfiança em vez de reduzir.
+ */
+export const FAQ = [
+  {
+    q: 'Isso é um tratamento ou medicamento?',
+    a: 'Não. O Programa 21D é educacional e trabalha rotina, sono, hábitos e consistência. Não faz diagnóstico, não prescreve nada e não substitui acompanhamento médico.',
+  },
+  {
+    q: 'Quanto tempo por dia eu preciso ter?',
+    a: 'As ações diárias foram desenhadas para caber em poucos minutos. A ideia é constância, não intensidade — por isso são 21 dias e não um plano de choque.',
+  },
+  {
+    q: 'Preciso de academia ou equipamento?',
+    a: 'Não. O plano parte da rotina que você já tem e ajusta a partir dela.',
+  },
+  {
+    q: 'Alguém vai saber que eu entrei?',
+    a: 'Não. A comunidade é opcional e usa apelidos. Você pode fazer o programa inteiro sem publicar nada.',
+  },
+  {
+    q: 'E se não funcionar para mim?',
+    a: 'Você tem garantia de 7 dias para pedir o reembolso integral.',
+  },
+]
 
 /** Tempos de animação (ms) */
 export const TIMING = {
