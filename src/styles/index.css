@@ -795,6 +795,131 @@ p {
 }
 
 /* ============================================================
+   ZONA VSL — destaca o vídeo do resto da página
+   ============================================================ */
+.vslzone {
+  margin: 34px 0 26px;
+  padding: 26px 20px;
+  background: #0C0F15;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+@media (min-width: 768px) {
+  .vslzone {
+    padding: 32px 30px;
+  }
+}
+
+/* ============================================================
+   GARANTIA
+   ============================================================ */
+.guarantee {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+  padding: 18px 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.guarantee__badge {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--r-pill);
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq__item {
+  border-top: 1px solid var(--border);
+}
+
+.faq__item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 17px 2px;
+  font-size: 15.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq__q::-webkit-details-marker {
+  display: none;
+}
+
+.faq__sign {
+  position: relative;
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+}
+
+.faq__sign::before,
+.faq__sign::after {
+  content: '';
+  position: absolute;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: transform 0.22s var(--ease-out);
+}
+
+.faq__sign::before {
+  top: 7px;
+  left: 0;
+  width: 15px;
+  height: 1.5px;
+}
+
+.faq__sign::after {
+  top: 0;
+  left: 7px;
+  width: 1.5px;
+  height: 15px;
+}
+
+.faq__item[open] .faq__sign::after {
+  transform: rotate(90deg);
+}
+
+.faq__a {
+  padding: 0 2px 18px;
+  animation: fadeIn 0.28s var(--ease-out) both;
+}
+
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
+.closer {
+  margin-top: 34px;
+  padding: 26px 22px;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-lg);
+  text-align: center;
+}
+
+/* ============================================================
    OFERTA
    ============================================================ */
 .brandmark {
@@ -859,11 +984,35 @@ p {
   border: 1px solid var(--border-strong);
 }
 
+.offer--hero {
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 44px -22px var(--accent-glow);
+}
+
+.pricebox {
+  margin: 22px 0;
+  padding: 18px 20px;
+  background: #0C0F15;
+  border-radius: var(--r-md);
+  text-align: center;
+}
+
+.offer__foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 14px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
 .price {
   display: flex;
   align-items: baseline;
+  justify-content: center;
   gap: 10px;
-  margin: 4px 0 3px;
+  margin: 6px 0 3px;
 }
 
 .price__value {
