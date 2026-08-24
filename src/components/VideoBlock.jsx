@@ -126,7 +126,7 @@ export default function VideoBlock({ onProgress }) {
         {started && VIDEO.mode === 'embed' && configured && (
           <iframe
             className="vsl__frame"
-            src={withAutoplay(VIDEO.embedUrl)}
+            src={withPlayerParams(VIDEO.embedUrl)}
             title="Vídeo de apresentação"
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
@@ -140,7 +140,7 @@ export default function VideoBlock({ onProgress }) {
             className="vsl__frame"
             src={VIDEO.mp4Url}
             poster={VIDEO.posterUrl || undefined}
-            controls
+            controls={!VIDEO.hideControls}
             autoPlay
             playsInline
             preload="metadata"
@@ -168,12 +168,18 @@ export default function VideoBlock({ onProgress }) {
  * Cada player usa um formato diferente de autoplay:
  * Cloudflare Stream e Panda esperam 'true', YouTube e Vimeo esperam '1'.
  */
-function withAutoplay(url) {
+function withPlayerParams(url) {
   try {
     const u = new URL(url)
     const host = u.hostname
-    const usesBoolean = /cloudflarestream\.com|pandavideo\.com|videodelivery\.net|b-cdn\.net|mediadelivery\.net/.test(host)
+    const isCloudflare = /cloudflarestream\.com|videodelivery\.net/.test(host)
+    const usesBoolean = isCloudflare || /pandavideo\.com|b-cdn\.net|mediadelivery\.net/.test(host)
     u.searchParams.set('autoplay', usesBoolean ? 'true' : '1')
+
+    if (VIDEO.hideControls) {
+      if (isCloudflare) u.searchParams.set('controls', 'false')
+      else u.searchParams.set('controls', '0')
+    }
     return u.toString()
   } catch {
     return url
